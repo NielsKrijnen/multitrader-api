@@ -4,7 +4,7 @@
 /coverage.data
 /coverage/
 
-# Build files
-/dist
-
-.env
+tsup.config.ts
+src
+.idea
+.github
