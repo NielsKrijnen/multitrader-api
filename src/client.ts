@@ -1,5 +1,6 @@
 import { Multitrader } from "./services/multitrader";
 import { Workflow } from "./services/workflow";
+import { Brightmotive } from "./services/brightmotive";
 
 type Fetch = (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>
 
@@ -41,5 +42,9 @@ export class MultitraderAPI {
 
   get workflow() {
     return new Workflow(this.settings)
+  }
+
+  get brightmotive() {
+    return new Brightmotive(this.settings)
   }
 }
