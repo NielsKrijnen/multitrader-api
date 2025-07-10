@@ -44,6 +44,20 @@ export type Process = {
   endDate: string
 }
 
+export type CreateProcess = {
+  description: string
+  authorName: string
+  authorEmail: string
+  message: string
+  attachments: Attachment[]
+}
+
+export type Attachment = {
+  id: number
+  fileName: string
+  encodedContent: string
+}
+
 export type Message = {
   id: number
   author: string
