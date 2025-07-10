@@ -14,10 +14,6 @@ export class Multitrader extends Base {
     return this.get<User[]>("/user/list", params)
   }
 
-  listMachineKinds(params?: Omit<SearchParams, "search">) {
-    return this.get<MachineKind[]>("/machinekinds", params)
-  }
-
   createMachine(machine: Omit<Machine, "uniqueID">) {
     return this.post<Machine>("/machine", machine)
   }
@@ -36,5 +32,9 @@ export class Multitrader extends Base {
 
   getMachineImage(uniqueID: number, imageID: number) {
     return this.get<string>(`/machine/${uniqueID}/image/${imageID}`)
+  }
+
+  listMachineKinds(params?: Omit<SearchParams, "search">) {
+    return this.get<MachineKind[]>("/machinekinds", params)
   }
 }
