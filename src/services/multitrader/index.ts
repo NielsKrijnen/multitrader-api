@@ -1,7 +1,32 @@
 import { Base } from "..";
-import { Machine, MachineKind, SearchParams, User } from "./types";
+import {
+  Article,
+  ArticleRequest,
+  ImportRequest,
+  Machine,
+  MachineKind, Order, OrderParams,
+  OrderRequest,
+  SearchParams,
+  User
+} from "./types";
 
 export class Multitrader extends Base {
+  postArticleList(articleRequest: ArticleRequest) {
+    return this.post<Article[]>("/article/list", articleRequest)
+  }
+
+  startArticleImport(importRequest: ImportRequest) {
+    return this.post<{ message: string }>("/articleimport", importRequest)
+  }
+
+  placeOrder(orderRequest: OrderRequest) {
+    return this.post<{ orderNumber: string }>("/order", orderRequest)
+  }
+
+  listOrders(debtorNumber: string, params?: OrderParams) {
+    return this.get<Order[]>("/order/list", { debtorNumber, ...params })
+  }
+
   getUser() {
     return this.get<User>("/user")
   }
